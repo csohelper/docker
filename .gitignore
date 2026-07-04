@@ -6,3 +6,5 @@ poetry.lock
 /storage/
 *.envdocker/
 *.env
+xray/xray.json
+

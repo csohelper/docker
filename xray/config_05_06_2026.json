@@ -1,0 +1,798 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "dns": {
+        "servers": [
+            "https://8.8.8.8/dns-query",
+            "https://1.1.1.1/dns-query",
+            "localhost"
+        ],
+        "queryStrategy": "UseIP"
+    },
+    "burstObservatory": {
+        "pingConfig": {
+            "connectivity": "",
+            "destination": "http://connectivitycheck.gstatic.com/generate_204",
+            "enableConcurrency": false,
+            "httpMethod": "HEAD",
+            "interval": "60s",
+            "sampling": 1,
+            "timeout": "15s"
+        },
+        "subjectSelector": [
+            "DC2-STABLE",
+            "DC2-TRJ",
+            "DC2-V",
+            "YC1"
+        ]
+    },
+    "inbounds": [
+	    {
+            "port": 12345,
+            "listen": "0.0.0.0",
+            "protocol": "dokodemo-door",
+            "settings": {
+                "network": "tcp",
+                "followRedirect": true
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls"
+                ]
+            }
+        },
+        {
+            "tag": "dns-in",
+            "port": 53,
+            "listen": "0.0.0.0",
+            "protocol": "dokodemo-door",
+            "settings": {
+                "network": "tcp,udp",
+                "followRedirect": false
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls"
+                ]
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "2.26.8.210",
+                        "port": 443,
+                        "users": [
+                            {
+                                "encryption": "none",
+                                "flow": "",
+                                "id": "bd05f74c-1914-0002-b78f-b290ee79ff9a"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "realitySettings": {
+                    "fingerprint": "ios",
+                    "publicKey": "N0QWKmBtCFsaSY0u1b_yGSaGi-OsaVFHyvF_2jsYW10",
+                    "serverName": "sso.passport.yandex.ru",
+                    "shortId": "edc578cc913374b9"
+                },
+                "security": "reality",
+                "xhttpSettings": {
+                    "extra": {
+                        "scMaxEachPostBytes": 1000000,
+                        "scStreamUpServerSecs": "30-90",
+                        "xPaddingBytes": "150-1200"
+                    },
+                    "host": "",
+                    "mode": "auto",
+                    "path": "/v1/api/check"
+                }
+            },
+            "tag": "DC2-STABLE"
+        },
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "2.26.8.210",
+                        "port": 443,
+                        "users": [
+                            {
+                                "encryption": "none",
+                                "flow": "",
+                                "id": "bd05f74c-1914-0003-b78f-b290ee79ff9a"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "realitySettings": {
+                    "fingerprint": "ios",
+                    "publicKey": "N0QWKmBtCFsaSY0u1b_yGSaGi-OsaVFHyvF_2jsYW10",
+                    "serverName": "sso.passport.yandex.ru",
+                    "shortId": "993cc566fcfc21f1"
+                },
+                "security": "reality",
+                "xhttpSettings": {
+                    "extra": {
+                        "scMaxEachPostBytes": 1000000,
+                        "scStreamUpServerSecs": "30-90",
+                        "xPaddingBytes": "150-1200"
+                    },
+                    "host": "",
+                    "mode": "auto",
+                    "path": "/v1/api/check"
+                }
+            },
+            "tag": "DC2-STABLE-2"
+        },
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "2.26.8.210",
+                        "port": 443,
+                        "users": [
+                            {
+                                "encryption": "none",
+                                "flow": "",
+                                "id": "bd05f74c-1914-0004-b78f-b290ee79ff9a"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "realitySettings": {
+                    "fingerprint": "ios",
+                    "publicKey": "N0QWKmBtCFsaSY0u1b_yGSaGi-OsaVFHyvF_2jsYW10",
+                    "serverName": "sso.passport.yandex.ru",
+                    "shortId": "5413fe7bbf90a539"
+                },
+                "security": "reality",
+                "xhttpSettings": {
+                    "extra": {
+                        "scMaxEachPostBytes": 1000000,
+                        "scStreamUpServerSecs": "30-90",
+                        "xPaddingBytes": "150-1200"
+                    },
+                    "host": "",
+                    "mode": "auto",
+                    "path": "/v1/api/check"
+                }
+            },
+            "tag": "DC2-STABLE-3"
+        },
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "2.26.8.210",
+                        "port": 443,
+                        "users": [
+                            {
+                                "encryption": "none",
+                                "flow": "",
+                                "id": "bd05f74c-1914-0005-b78f-b290ee79ff9a"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "realitySettings": {
+                    "fingerprint": "ios",
+                    "publicKey": "N0QWKmBtCFsaSY0u1b_yGSaGi-OsaVFHyvF_2jsYW10",
+                    "serverName": "sso.passport.yandex.ru",
+                    "shortId": "24257a9b4b139bc3"
+                },
+                "security": "reality",
+                "xhttpSettings": {
+                    "extra": {
+                        "scMaxEachPostBytes": 1000000,
+                        "scStreamUpServerSecs": "30-90",
+                        "xPaddingBytes": "150-1200"
+                    },
+                    "host": "",
+                    "mode": "auto",
+                    "path": "/v1/api/check"
+                }
+            },
+            "tag": "DC2-STABLE-4"
+        },
+        {
+            "protocol": "hysteria",
+            "settings": {
+                "address": "2.26.8.210",
+                "port": 20002,
+                "version": 2
+            },
+            "streamSettings": {
+                "finalmask": {
+                    "quicParams": {
+                        "brutalDown": "80 mbps",
+                        "brutalUp": "80 mbps",
+                        "congestion": "brutal",
+                        "debug": false
+                    }
+                },
+                "hysteriaSettings": {
+                    "auth": "bd05f74c-1914-461f-b78f-b290ee79ff9a",
+                    "version": 2
+                },
+                "network": "hysteria",
+                "security": "tls",
+                "tlsSettings": {
+                    "alpn": [
+                        "h3"
+                    ],
+                    "fingerprint": "ios",
+                    "serverName": "dc2.vpn.slavapmk.ru"
+                }
+            },
+            "tag": "DC2-STABLE-5"
+        },
+        {
+            "protocol": "hysteria",
+            "settings": {
+                "address": "2.26.8.210",
+                "port": 20003,
+                "version": 2
+            },
+            "streamSettings": {
+                "finalmask": {
+                    "quicParams": {
+                        "brutalDown": "80 mbps",
+                        "brutalUp": "80 mbps",
+                        "congestion": "brutal",
+                        "debug": false
+                    }
+                },
+                "hysteriaSettings": {
+                    "auth": "bd05f74c-1914-461f-b78f-b290ee79ff9a",
+                    "version": 2
+                },
+                "network": "hysteria",
+                "security": "tls",
+                "tlsSettings": {
+                    "alpn": [
+                        "h3"
+                    ],
+                    "fingerprint": "ios",
+                    "serverName": "dc2.vpn.slavapmk.ru"
+                }
+            },
+            "tag": "DC2-STABLE-6"
+        },
+        {
+            "protocol": "hysteria",
+            "settings": {
+                "address": "2.26.8.210",
+                "port": 20004,
+                "version": 2
+            },
+            "streamSettings": {
+                "finalmask": {
+                    "quicParams": {
+                        "brutalDown": "80 mbps",
+                        "brutalUp": "80 mbps",
+                        "congestion": "brutal",
+                        "debug": false
+                    }
+                },
+                "hysteriaSettings": {
+                    "auth": "bd05f74c-1914-461f-b78f-b290ee79ff9a",
+                    "version": 2
+                },
+                "network": "hysteria",
+                "security": "tls",
+                "tlsSettings": {
+                    "alpn": [
+                        "h3"
+                    ],
+                    "fingerprint": "ios",
+                    "serverName": "dc2.vpn.slavapmk.ru"
+                }
+            },
+            "tag": "DC2-STABLE-7"
+        },
+        {
+            "protocol": "hysteria",
+            "settings": {
+                "address": "2.26.8.210",
+                "port": 20005,
+                "version": 2
+            },
+            "streamSettings": {
+                "finalmask": {
+                    "quicParams": {
+                        "brutalDown": "80 mbps",
+                        "brutalUp": "80 mbps",
+                        "congestion": "brutal",
+                        "debug": false
+                    }
+                },
+                "hysteriaSettings": {
+                    "auth": "bd05f74c-1914-461f-b78f-b290ee79ff9a",
+                    "version": 2
+                },
+                "network": "hysteria",
+                "security": "tls",
+                "tlsSettings": {
+                    "alpn": [
+                        "h3"
+                    ],
+                    "fingerprint": "ios",
+                    "serverName": "dc2.vpn.slavapmk.ru"
+                }
+            },
+            "tag": "DC2-STABLE-8"
+        },
+        {
+            "protocol": "trojan",
+            "settings": {
+                "servers": [
+                    {
+                        "address": "212.115.55.193",
+                        "password": "Kj_2mCBQVcMckwj7om6dPjMbhNYG4fqL",
+                        "port": 40002
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "tls",
+                "tlsSettings": {
+                    "fingerprint": "chrome",
+                    "serverName": "dc2.vpn.slavapmk.ru"
+                },
+                "wsSettings": {
+                    "headers": {
+                        "Host": ""
+                    },
+                    "path": "/ws"
+                }
+            },
+            "tag": "DC2-TRJ"
+        },
+        {
+            "protocol": "trojan",
+            "settings": {
+                "servers": [
+                    {
+                        "address": "212.115.55.193",
+                        "password": "Kj_2mCBQVcMckwj7om6dPjMbhNYG4fqL",
+                        "port": 40003
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "tls",
+                "tlsSettings": {
+                    "fingerprint": "chrome",
+                    "serverName": "dc2.vpn.slavapmk.ru"
+                },
+                "wsSettings": {
+                    "headers": {
+                        "Host": ""
+                    },
+                    "path": "/ws"
+                }
+            },
+            "tag": "DC2-TRJ-2"
+        },
+        {
+            "protocol": "trojan",
+            "settings": {
+                "servers": [
+                    {
+                        "address": "212.115.55.193",
+                        "password": "Kj_2mCBQVcMckwj7om6dPjMbhNYG4fqL",
+                        "port": 40004
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "tls",
+                "tlsSettings": {
+                    "fingerprint": "chrome",
+                    "serverName": "dc2.vpn.slavapmk.ru"
+                },
+                "wsSettings": {
+                    "headers": {
+                        "Host": ""
+                    },
+                    "path": "/ws"
+                }
+            },
+            "tag": "DC2-TRJ-3"
+        },
+        {
+            "protocol": "trojan",
+            "settings": {
+                "servers": [
+                    {
+                        "address": "212.115.55.193",
+                        "password": "Kj_2mCBQVcMckwj7om6dPjMbhNYG4fqL",
+                        "port": 40005
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "tls",
+                "tlsSettings": {
+                    "fingerprint": "chrome",
+                    "serverName": "dc2.vpn.slavapmk.ru"
+                },
+                "wsSettings": {
+                    "headers": {
+                        "Host": ""
+                    },
+                    "path": "/ws"
+                }
+            },
+            "tag": "DC2-TRJ-4"
+        },
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "2.26.8.210",
+                        "port": 54443,
+                        "users": [
+                            {
+                                "encryption": "none",
+                                "flow": "xtls-rprx-vision",
+                                "id": "bd05f74c-1914-0002-b78f-b290ee79ff9a"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "realitySettings": {
+                    "fingerprint": "ios",
+                    "publicKey": "N0QWKmBtCFsaSY0u1b_yGSaGi-OsaVFHyvF_2jsYW10",
+                    "serverName": "yandex.ru",
+                    "shortId": "c79296da5ac32294"
+                },
+                "security": "reality",
+                "tcpSettings": {
+                }
+            },
+            "tag": "DC2-V"
+        },
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "2.26.8.210",
+                        "port": 54443,
+                        "users": [
+                            {
+                                "encryption": "none",
+                                "flow": "xtls-rprx-vision",
+                                "id": "bd05f74c-1914-0003-b78f-b290ee79ff9a"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "realitySettings": {
+                    "fingerprint": "ios",
+                    "publicKey": "N0QWKmBtCFsaSY0u1b_yGSaGi-OsaVFHyvF_2jsYW10",
+                    "serverName": "yandex.ru",
+                    "shortId": "fc397762e9c9aca3"
+                },
+                "security": "reality",
+                "tcpSettings": {
+                }
+            },
+            "tag": "DC2-V-2"
+        },
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "2.26.8.210",
+                        "port": 54443,
+                        "users": [
+                            {
+                                "encryption": "none",
+                                "flow": "xtls-rprx-vision",
+                                "id": "bd05f74c-1914-0004-b78f-b290ee79ff9a"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "realitySettings": {
+                    "fingerprint": "ios",
+                    "publicKey": "N0QWKmBtCFsaSY0u1b_yGSaGi-OsaVFHyvF_2jsYW10",
+                    "serverName": "yandex.ru",
+                    "shortId": "a8f1ea961b99ab78"
+                },
+                "security": "reality",
+                "tcpSettings": {
+                }
+            },
+            "tag": "DC2-V-3"
+        },
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "2.26.8.210",
+                        "port": 54443,
+                        "users": [
+                            {
+                                "encryption": "none",
+                                "flow": "xtls-rprx-vision",
+                                "id": "bd05f74c-1914-0005-b78f-b290ee79ff9a"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "realitySettings": {
+                    "fingerprint": "ios",
+                    "publicKey": "N0QWKmBtCFsaSY0u1b_yGSaGi-OsaVFHyvF_2jsYW10",
+                    "serverName": "yandex.ru",
+                    "shortId": "31cb4341cb41cf55"
+                },
+                "security": "reality",
+                "tcpSettings": {
+                }
+            },
+            "tag": "DC2-V-4"
+        },
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "158.160.58.44",
+                        "port": 443,
+                        "users": [
+                            {
+                                "encryption": "none",
+                                "flow": "",
+                                "id": "bd05f74c-1914-0002-b78f-b290ee79ff9a"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "realitySettings": {
+                    "fingerprint": "ios",
+                    "publicKey": "N0QWKmBtCFsaSY0u1b_yGSaGi-OsaVFHyvF_2jsYW10",
+                    "serverName": "sso.passport.yandex.ru",
+                    "shortId": "4c238b653bc86749"
+                },
+                "security": "reality",
+                "xhttpSettings": {
+                    "extra": {
+                        "scMaxEachPostBytes": 1000000,
+                        "scStreamUpServerSecs": "30-90",
+                        "xPaddingBytes": "150-1200"
+                    },
+                    "host": "",
+                    "mode": "auto",
+                    "path": "/v1/api/check"
+                }
+            },
+            "tag": "YC1"
+        },
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "158.160.58.44",
+                        "port": 443,
+                        "users": [
+                            {
+                                "encryption": "none",
+                                "flow": "",
+                                "id": "bd05f74c-1914-0003-b78f-b290ee79ff9a"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "realitySettings": {
+                    "fingerprint": "ios",
+                    "publicKey": "N0QWKmBtCFsaSY0u1b_yGSaGi-OsaVFHyvF_2jsYW10",
+                    "serverName": "sso.passport.yandex.ru",
+                    "shortId": "55bd16dc7d13415b"
+                },
+                "security": "reality",
+                "xhttpSettings": {
+                    "extra": {
+                        "scMaxEachPostBytes": 1000000,
+                        "scStreamUpServerSecs": "30-90",
+                        "xPaddingBytes": "150-1200"
+                    },
+                    "host": "",
+                    "mode": "auto",
+                    "path": "/v1/api/check"
+                }
+            },
+            "tag": "YC1-2"
+        },
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "158.160.58.44",
+                        "port": 443,
+                        "users": [
+                            {
+                                "encryption": "none",
+                                "flow": "",
+                                "id": "bd05f74c-1914-0004-b78f-b290ee79ff9a"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "realitySettings": {
+                    "fingerprint": "ios",
+                    "publicKey": "N0QWKmBtCFsaSY0u1b_yGSaGi-OsaVFHyvF_2jsYW10",
+                    "serverName": "sso.passport.yandex.ru",
+                    "shortId": "43328c097bf541dd"
+                },
+                "security": "reality",
+                "xhttpSettings": {
+                    "extra": {
+                        "scMaxEachPostBytes": 1000000,
+                        "scStreamUpServerSecs": "30-90",
+                        "xPaddingBytes": "150-1200"
+                    },
+                    "host": "",
+                    "mode": "auto",
+                    "path": "/v1/api/check"
+                }
+            },
+            "tag": "YC1-3"
+        },
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "158.160.58.44",
+                        "port": 443,
+                        "users": [
+                            {
+                                "encryption": "none",
+                                "flow": "",
+                                "id": "bd05f74c-1914-0005-b78f-b290ee79ff9a"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "realitySettings": {
+                    "fingerprint": "ios",
+                    "publicKey": "N0QWKmBtCFsaSY0u1b_yGSaGi-OsaVFHyvF_2jsYW10",
+                    "serverName": "sso.passport.yandex.ru",
+                    "shortId": "0c9d873c4ae02038"
+                },
+                "security": "reality",
+                "xhttpSettings": {
+                    "extra": {
+                        "scMaxEachPostBytes": 1000000,
+                        "scStreamUpServerSecs": "30-90",
+                        "xPaddingBytes": "150-1200"
+                    },
+                    "host": "",
+                    "mode": "auto",
+                    "path": "/v1/api/check"
+                }
+            },
+            "tag": "YC1-4"
+        },
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "block"
+        }
+    ],
+    "routing": {
+        "balancers": [
+            {
+                "selector": [
+                    "DC2-STABLE",
+                    "DC2-TRJ",
+                    "DC2-V",
+                    "YC1"
+                ],
+                "strategy": {
+                    "settings": {
+                        "costs": [
+                            {
+                                "match": "DC2-STABLE",
+                                "regexp": false,
+                                "value": 1
+                            },
+                            {
+                                "match": "DC2-TRJ",
+                                "regexp": false,
+                                "value": 3
+                            },
+                            {
+                                "match": "DC2-V",
+                                "regexp": false,
+                                "value": 200
+                            },
+                            {
+                                "match": "YC1",
+                                "regexp": false,
+                                "value": 100
+                            }
+                        ],
+                        "expected": 1,
+                        "maxRTT": "500ms"
+                    },
+                    "type": "leastLoad"
+                },
+                "tag": "DC2-ALL"
+            }
+        ],
+        "domainMatcher": "hybrid",
+        "domainStrategy": "IPIfNonMatch",
+        "rules": [
+            {
+                "balancerTag": "DC2-ALL",
+                "network": "tcp,udp",
+                "type": "field"
+            }
+        ]
+    }
+}
